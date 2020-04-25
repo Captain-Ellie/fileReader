@@ -22,11 +22,10 @@ public class Main {
                try (BufferedReader scan = new BufferedReader(new FileReader(str_arr[i]))) {
                    int line_count = 0;
                    int words_count = 0;
-                   FileReader fileReader = new FileReader(str_arr[i]);
-                   LineNumberReader lineNumReader = new LineNumberReader(fileReader);
-                   while ((lineNumReader.readLine()) != null) {
+                   String line = "";
+                   while ((line = scan.readLine()) != null) {
                        line_count++;
-                       words_count += scan.readLine().split("\\s*(\\s|,|\\.!)\\s*").length;
+                       words_count += line.split("\\s*(\\s|,|\\.!)\\s*").length;
                    }
                    System.out.println("File: " + str_arr[i] + " - " + line_count + " lines" + " and "
                            + words_count + " words");
